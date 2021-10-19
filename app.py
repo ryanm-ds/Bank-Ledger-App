@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 # app.config['MONGO_URI'] = 'mongodb+srv://rvm8989:Omikron1!@cluster0.6r8p9.mongodb.net/bank_accounts?retryWrites=true&w=majority'
 
-client = pymongo.MongoClient("mongodb+srv://rvm8989:omikron@cluster0.6r8p9.mongodb.net/bank_account?retryWrites=true&w=majority",ssl=True,ssl_cert_reqs='CERT_NONE')
+client = pymongo.MongoClient("mongodb+srv://rvm8989:Password@cluster0.6r8p9.mongodb.net/bank_account?retryWrites=true&w=majority",ssl=True,ssl_cert_reqs='CERT_NONE')
 db = client.bank_accounts
 
 # Routes
