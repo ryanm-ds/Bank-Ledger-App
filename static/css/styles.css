@@ -17,6 +17,10 @@
   --secondary: #CFD8DC;
   --secondary-dark: #B0BEC5;
   --red: #EF4836;
+  --deposit: #55b63c;
+  --deposit-dark: #3b7e2a;
+  --red-dark: #a33124;
+  
 }
 
 * {
@@ -171,6 +175,25 @@ label {
 .btn--secondary:hover {
   background: var(--secondary-dark);
 }
+
+.btn--deposit {
+  color: var(--white);
+  background: var(--deposit);
+}
+
+.btn--deposit:hover {
+  background: var(--deposit-dark);
+}
+
+.btn--withdraw {
+  color: var(--white);
+  background: var(--red);
+}
+
+.btn--withdraw:hover {
+  background: var(--red-dark);
+}
+
 
 input[type=submit] {
   margin: 34px auto 24px;
