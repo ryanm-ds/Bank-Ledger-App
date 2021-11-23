@@ -8,7 +8,7 @@ app.secret_key = b'^\xb3\xd0\xf5Er\x96w\xddS\xbb\xbf\xd0\xaf\xb70'
 
 # Database
 
-client = pymongo.MongoClient("mongodb+srv://rvm8989:PASSWORD@cluster0.6r8p9.mongodb.net/bank_account?retryWrites=true&w=majority",ssl=True,ssl_cert_reqs='CERT_NONE')
+client = pymongo.MongoClient("MONGODBURI")
 db = client.bank_accounts
 
 # Decorators 
@@ -33,5 +33,10 @@ def home():
 @login_required
 def dashboard():
     return render_template('dashboard.html')
+
+@app.after_request
+def add_header(response):
+    response.cache_control.max_age = 0
+    return response
 
 

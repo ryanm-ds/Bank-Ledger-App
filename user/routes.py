@@ -15,10 +15,14 @@ def signout():
 def login():
     return User().login()
 
-@app.route('/user/deposit')
+@app.route('/user/deposit',methods=['POST'])
 def deposit():
     return User().deposit()
 
-@app.route('/user/withdraw')
+@app.route('/user/withdraw',methods=['POST'])
 def withdraw():
     return User().withdraw()
+
+@app.route('/user/visualize')
+def visualize():
+    return User().visualize()

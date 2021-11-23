@@ -11,47 +11,65 @@
                 <a href="/user/signout" class="btn btn--secondary">Sign Out</a>
             </div>
 
-    </div>
+        </div>
 
-    <div class="card">
-        <h1 class="center">Your Info</h1>
+        <div class="card">
+            <h1 class="center">Your Info</h1>
 
-        <p>
-            <strong>ID:</strong> {{ session['user']['_id'] }}<br>
-            <strong>Name:</strong> {{ session['user']['name'] }}<br>
-            <strong>Email:</strong> {{ session['user']['email'] }}<br>
-            <strong>Balance as of <span id="newdate"></span>:</strong> ${{ session['user']['balances'][-1]['current_balance']}}<br>
-        </p>
+            <p>
+                <strong>ID:</strong> {{ session['user']['_id'] }}<br>
+                <strong>Name:</strong> {{ session['user']['name'] }}<br>
+                <strong>Email:</strong> {{ session['user']['email'] }}<br>
+                <strong>Balance as of <span id="newdate"></span>:</strong> ${{ session['user']['balances'][-1]['current_balance']}}<br>
+            </p>
 
-    </div>
-    
-    <div class="card-wrapper">
+        </div> 
+        
         <div class="card">
 
             <h1 class="center">Deposit or Withdraw Funds</h1>
-            <p class="center">Enter Amount($)</p>
+            <p class="center">Enter Amount ($)</p>
 
-            <form name="deposit_withdraw_form">
+            <form action="#" method="post" name="deposit_withdraw_form" id="form_id">
 
-                
-                <input type="number" name="deposit_withdraw" class="field" required>
-    
-                
-    
-                <p class="error error--hiden"></p>
-    
-                <input type="submit" value="Deposit" class="btn btn--deposit"> 
-                <input type="submit" value="Withdraw" class="btn btn--withdraw">
-                
-                </form> 
+            <input type="text" name="deposit_withdraw" id="deposit_withdraw" class="field" required>
 
+            <p class="error error--hidden"></p>
+
+            <button class="btn btn--deposit" onclick="deposit()">Deposit</button> 
+            <button class="btn btn--withdraw" onclick="withdraw()">Withdraw</button> 
+            </form> 
+        </div>
            
-    </div>
-    <div class="card-wrapper">
-        <div class="card">
+        <div class="card2">
 
             <h1 class="center">Your Activity</h1>
-            <p class="center">Last 5 Transactions.</p>      
+            <p class="center"><strong>Last 5 Transactions:</strong></p> 
+            <table>
+                <tr>
+                    <th>Current Balance</th>
+                    <th>Amount Entered</th>
+                    <th>Transaction Type</th>
+                    <th>Date</th>
+                </tr>
+                {% for transaction in session['user']['balances'][-5:] %}
+                <tr>
+                    <td>{{ transaction['current_balance'] }}</td>
+                    <td>{{ transaction['amount_entered'] }}</td>
+                    <td>{{ transaction['action'] }} </td>
+                    <td>{{ transaction['date'] }} </td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+        <div class="card2">
+
+        <h1 class="center">Your Balances</h1>
+        <img src="/user/visualize" alt="Balances" width=100% >
+        
+        </div> 
+       
+        
     </div>
 
 {% endblock %}

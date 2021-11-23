@@ -70,9 +70,19 @@ p {
 }
 
 .card {
-  margin: 0 30px 60px;
+  margin: 0 15px 30px;
   padding: 20px 40px;
   width: 460px;
+  box-shadow: 0 8px 26px -4px rgba(0,0,0,0.15);
+  border-radius: 5px;
+  background: var(--white);
+}
+
+
+.card2 {
+  margin: 0 15px 30px;
+  padding: 20px 40px;
+  width: 700px;
   box-shadow: 0 8px 26px -4px rgba(0,0,0,0.15);
   border-radius: 5px;
   background: var(--white);
@@ -179,6 +189,11 @@ label {
 .btn--deposit {
   color: var(--white);
   background: var(--deposit);
+  width: 40%;
+  margin-left: 5%;
+  margin-right: auto;
+
+
 }
 
 .btn--deposit:hover {
@@ -188,14 +203,27 @@ label {
 .btn--withdraw {
   color: var(--white);
   background: var(--red);
+  width: 40%;
+  margin-left: 5%;
+  margin-right: 5%;
+
+
 }
 
 .btn--withdraw:hover {
   background: var(--red-dark);
 }
 
-
-input[type=submit] {
-  margin: 34px auto 24px;
-  display: block;
+table {
+  border-collapse: collapse;
+  width: 100%;
 }
+
+th, td {
+  text-align: left;
+  padding: 5px;
+}
+
+tr:nth-child(even) {background-color: #c7cfc5;}
+
+
