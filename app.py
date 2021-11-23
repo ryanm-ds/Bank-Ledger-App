@@ -37,6 +37,8 @@ def dashboard():
 @app.after_request
 def add_header(response):
     response.cache_control.max_age = 0
+    response.headers['X-UA-Compatible'] = 'IE=Edge,chrome=1'
+    response.headers['Cache-Control'] = 'public, max-age=0'
     return response
 
 

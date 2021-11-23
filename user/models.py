@@ -137,7 +137,7 @@ class User:
        
         matplotlib.use('Agg')
         
-        vis_data = db.account.find_one({"email":'ryan@ryan.com'})
+        vis_data = db.account.find_one({"email":session['user']['email']})
 
         vis_data = pd.DataFrame(list(vis_data['balances'][-5:]))
 
